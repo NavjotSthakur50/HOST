@@ -2,11 +2,12 @@
   "builds": [
     {
       "src": "package.json",
-      "use": "@vercel/next",
-      "config": {
-        "installCommand": "npm install --no-package-lock --force",
-        "buildCommand": "npm run build"
-      }
+      "use": "@vercel/next"
     }
-  ]
+  ],
+  "build": {
+    "env": {
+      "NEXT_TELEMETRY_DISABLED": "1"
+    }
+  }
 } 
