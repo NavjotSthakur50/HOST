@@ -33,20 +33,18 @@ const MeetingRoom = () => {
     const callingState = useCallCallingState();
     const router = useRouter();
 
-    if(callingState !== CallingState.JOINED) return
-    <Loader />
-
+    if(callingState !== CallingState.JOINED) return <Loader />;
 
     const CallLayout = () =>{
         switch (layout) {
             case 'grid':
                 return <PaginatedGridLayout />
-                case 'speaker-right':
-                    return <SpeakerLayout
-                    participantsBarPosition="left"/>
-                default:
-                    return <SpeakerLayout
-                    participantsBarPosition="right"/>    
+            case 'speaker-right':
+                return <SpeakerLayout
+                participantsBarPosition="left"/>
+            default:
+                return <SpeakerLayout
+                participantsBarPosition="right"/>    
         }
     }
   return (

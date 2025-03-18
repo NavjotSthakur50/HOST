@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client'
 import { useGetCalls } from '@/hooks/useGetCalls';
 import Loader from "@/components/Loader";
@@ -23,7 +22,7 @@ const CallList = ({ type }: { type: 'ended' | 'upcoming' | 'recordings' }) => {
                 throw new Error('Recording not available');
             }
             window.open(meeting.url, '_blank');
-        } catch (error) {
+        } catch {
             toast({
                 title: "Recording Unavailable",
                 description: "This recording may have expired or been deleted.",
@@ -71,7 +70,7 @@ const CallList = ({ type }: { type: 'ended' | 'upcoming' | 'recordings' }) => {
                     .filter(recording => recording.url && recording.status === 'available');
 
                 setRecordings(recordings);
-            } catch (error) {
+            } catch {
                 toast({ 
                     title: 'Failed to load recordings',
                     description: 'Please try again later',
@@ -80,7 +79,7 @@ const CallList = ({ type }: { type: 'ended' | 'upcoming' | 'recordings' }) => {
             }
         };
         if (type === 'recordings') fetchRecordings();
-    }, [type, callRecordings]);
+    }, [type, callRecordings, toast]);
 
     const calls = getCalls();
     const noCallsMessage = getNoCallsMessage();
