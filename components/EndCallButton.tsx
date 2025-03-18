@@ -2,11 +2,10 @@
 import { useCall, useCallStateHooks } from '@stream-io/video-react-sdk';
 import React from 'react'
 import { Button } from './ui/button';
-import { redirect, useRouter } from 'next/navigation';
+import { redirect } from 'next/navigation';
 
 const EndCallButton = () => {
   const call = useCall();
-  const router = useRouter;
   const { useLocalParticipant } = useCallStateHooks();
   const localParticipant = useLocalParticipant();
 
