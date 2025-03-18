@@ -1,0 +1,12 @@
+{
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/next",
+      "config": {
+        "installCommand": "npm install --no-package-lock --force",
+        "buildCommand": "npm run build"
+      }
+    }
+  ]
+} 
