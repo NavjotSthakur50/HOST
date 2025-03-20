@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: "Host",
     description: "Your online event host",
     icons:{
-      icon: '/icons/logo/svg'
+      icon: '/icons/logo.svg'
     }
   };
   
